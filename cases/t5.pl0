@@ -1,0 +1,6 @@
+// 运行期数组越界检查
+var a[3], i;
+begin
+  for i := 0 to 3 do a[i] := i;
+  write('never')
+end.

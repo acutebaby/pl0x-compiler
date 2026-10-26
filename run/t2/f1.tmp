@@ -1,0 +1,22 @@
+------ 源程序 cases/t2.pl0 ------
+  1| // 数组、for、repeat、if-else、复合赋值
+  2| var a[5], i, s, n;
+  3| begin
+  4|   for i := 0 to 4 do a[i] := i * i;
+  5|   s := 0;
+  6|   for i := 0 to 4 do s += a[i];
+  7|   write('sum=', s);
+  8|   n := 0;
+  9|   repeat n += 1 until n >= 10;
+ 10|   write('n=', n);
+ 11|   if s > 100 then write('big') else write('small');
+ 12|   i := 3;
+ 13|   i++;
+ 14|   i += 5;
+ 15|   i--;
+ 16|   write('i=', i, ' mod=', i % 4, ' sqrt=', sqrt(49));
+ 17|   write('logic:', (i > 5) and (i < 100), (i > 100) or (i = 8))
+ 18| end.
+
+------ 编译统计 ------
+源程序行数：19  目标代码：122 条  名字表：4 项  错误：0 个

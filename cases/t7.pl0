@@ -1,0 +1,8 @@
+// 语法错误与错误恢复
+var a, b;
+begin
+  a := 1
+  b := 2;
+  if a > b then write(a) eles write(b);
+  write(a + )
+end.

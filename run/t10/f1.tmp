@@ -1,0 +1,25 @@
+------ 源程序 cases/t10.pl0 ------
+  1| /* 综合用例：冒泡排序（数组 + 双重 for + if + 复合赋值） */
+  2| var a[8], i, j, t, n;
+  3| begin
+  4|   n := 8;
+  5|   a[0] := 49; a[1] := 38; a[2] := 65; a[3] := 97;
+  6|   a[4] := 76; a[5] := 13; a[6] := 27; a[7] := 4;
+  7|   print('before:');
+  8|   for i := 0 to n - 1 do print(' ', a[i]);
+  9|   write('');
+ 10|   for i := 0 to n - 2 do
+ 11|     for j := 0 to n - 2 - i do
+ 12|       if a[j] > a[j + 1] then
+ 13|       begin
+ 14|         t := a[j];
+ 15|         a[j] := a[j + 1];
+ 16|         a[j + 1] := t
+ 17|       end;
+ 18|   print('after :');
+ 19|   for i := 0 to n - 1 do print(' ', a[i]);
+ 20|   write('')
+ 21| end.
+
+------ 编译统计 ------
+源程序行数：22  目标代码：177 条  名字表：5 项  错误：0 个

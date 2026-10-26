@@ -1,0 +1,6 @@
+// 运行期除零检查
+var a, b;
+begin
+  a := 10; b := 0;
+  write(a / b)
+end.

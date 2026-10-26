@@ -1,0 +1,13 @@
+/* 九九乘法表：嵌套 for + write 字符串 */
+var i, j;
+begin
+  for i := 1 to 9 do
+  begin
+    for j := 1 to i do
+    begin
+      print(j, '*', i, '=', i * j);
+      if i * j < 10 then print('  ') else print(' ')
+    end;
+    write('')
+  end
+end.

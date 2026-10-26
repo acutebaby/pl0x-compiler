@@ -1,0 +1,219 @@
+------ 源程序 cases/t10.pl0 ------
+  1| /* 综合用例：冒泡排序（数组 + 双重 for + if + 复合赋值） */
+  2| var a[8], i, j, t, n;
+  3| begin
+  4|   n := 8;
+  5|   a[0] := 49; a[1] := 38; a[2] := 65; a[3] := 97;
+  6|   a[4] := 76; a[5] := 13; a[6] := 27; a[7] := 4;
+  7|   print('before:');
+  8|   for i := 0 to n - 1 do print(' ', a[i]);
+  9|   write('');
+ 10|   for i := 0 to n - 2 do
+ 11|     for j := 0 to n - 2 - i do
+ 12|       if a[j] > a[j + 1] then
+ 13|       begin
+ 14|         t := a[j];
+ 15|         a[j] := a[j + 1];
+ 16|         a[j + 1] := t
+ 17|       end;
+ 18|   print('after :');
+ 19|   for i := 0 to n - 1 do print(' ', a[i]);
+ 20|   write('')
+ 21| end.
+
+------ 名字表（当前层次 lev=0，表长 5）------
+ 序号 名字            类别     值/层次  地址  大小
+    1 a              数组        0     3     8
+    2 i              变量        0    11     1
+    3 j              变量        0    12     1
+    4 t              变量        0    13     1
+    5 n              变量        0    14     1
+
+------ 目标代码（P-代码）177 条 ------
+ 地址  指令   层次  操作数
+    0  jmp       0      1
+    1  int       0     23
+    2  lod       0     14
+    3  lit       0      8
+    4  sto       0     14
+    5  lit       0      0
+    6  chk       0      8
+    7  lda       0      3
+    8  opr       0      2
+    9  lit       0     49
+   10  sti       0      0
+   11  lit       0      1
+   12  chk       0      8
+   13  lda       0      3
+   14  opr       0      2
+   15  lit       0     38
+   16  sti       0      0
+   17  lit       0      2
+   18  chk       0      8
+   19  lda       0      3
+   20  opr       0      2
+   21  lit       0     65
+   22  sti       0      0
+   23  lit       0      3
+   24  chk       0      8
+   25  lda       0      3
+   26  opr       0      2
+   27  lit       0     97
+   28  sti       0      0
+   29  lit       0      4
+   30  chk       0      8
+   31  lda       0      3
+   32  opr       0      2
+   33  lit       0     76
+   34  sti       0      0
+   35  lit       0      5
+   36  chk       0      8
+   37  lda       0      3
+   38  opr       0      2
+   39  lit       0     13
+   40  sti       0      0
+   41  lit       0      6
+   42  chk       0      8
+   43  lda       0      3
+   44  opr       0      2
+   45  lit       0     27
+   46  sti       0      0
+   47  lit       0      7
+   48  chk       0      8
+   49  lda       0      3
+   50  opr       0      2
+   51  lit       0      4
+   52  sti       0      0
+   53  wrs       0      0
+   54  lit       0      0
+   55  sto       0     11
+   56  lod       0     14
+   57  lit       0      1
+   58  opr       0      3
+   59  sto       0     15
+   60  lod       0     11
+   61  lod       0     15
+   62  opr       0     13
+   63  jpc       0     76
+   64  wrs       0      1
+   65  lod       0     11
+   66  chk       0      8
+   67  lda       0      3
+   68  opr       0      2
+   69  ldi       0      0
+   70  opr       0     14
+   71  lod       0     11
+   72  lit       0      1
+   73  opr       0      2
+   74  sto       0     11
+   75  jmp       0     60
+   76  wrs       0      2
+   77  opr       0     15
+   78  lit       0      0
+   79  sto       0     11
+   80  lod       0     14
+   81  lit       0      2
+   82  opr       0      3
+   83  sto       0     15
+   84  lod       0     11
+   85  lod       0     15
+   86  opr       0     13
+   87  jpc       0    151
+   88  lit       0      0
+   89  sto       0     12
+   90  lod       0     14
+   91  lit       0      2
+   92  opr       0      3
+   93  lod       0     11
+   94  opr       0      3
+   95  sto       0     16
+   96  lod       0     12
+   97  lod       0     16
+   98  opr       0     13
+   99  jpc       0    146
+  100  lod       0     12
+  101  chk       0      8
+  102  lda       0      3
+  103  opr       0      2
+  104  ldi       0      0
+  105  lod       0     12
+  106  lit       0      1
+  107  opr       0      2
+  108  chk       0      8
+  109  lda       0      3
+  110  opr       0      2
+  111  ldi       0      0
+  112  opr       0     12
+  113  jpc       0    141
+  114  lod       0     13
+  115  lod       0     12
+  116  chk       0      8
+  117  lda       0      3
+  118  opr       0      2
+  119  ldi       0      0
+  120  sto       0     13
+  121  lod       0     12
+  122  chk       0      8
+  123  lda       0      3
+  124  opr       0      2
+  125  lod       0     12
+  126  lit       0      1
+  127  opr       0      2
+  128  chk       0      8
+  129  lda       0      3
+  130  opr       0      2
+  131  ldi       0      0
+  132  sti       0      0
+  133  lod       0     12
+  134  lit       0      1
+  135  opr       0      2
+  136  chk       0      8
+  137  lda       0      3
+  138  opr       0      2
+  139  lod       0     13
+  140  sti       0      0
+  141  lod       0     12
+  142  lit       0      1
+  143  opr       0      2
+  144  sto       0     12
+  145  jmp       0     96
+  146  lod       0     11
+  147  lit       0      1
+  148  opr       0      2
+  149  sto       0     11
+  150  jmp       0     84
+  151  wrs       0      3
+  152  lit       0      0
+  153  sto       0     11
+  154  lod       0     14
+  155  lit       0      1
+  156  opr       0      3
+  157  sto       0     15
+  158  lod       0     11
+  159  lod       0     15
+  160  opr       0     13
+  161  jpc       0    174
+  162  wrs       0      1
+  163  lod       0     11
+  164  chk       0      8
+  165  lda       0      3
+  166  opr       0      2
+  167  ldi       0      0
+  168  opr       0     14
+  169  lod       0     11
+  170  lit       0      1
+  171  opr       0      2
+  172  sto       0     11
+  173  jmp       0    158
+  174  wrs       0      2
+  175  opr       0     15
+  176  opr       0      0
+
+------ 编译统计 ------
+源程序行数：22    目标代码：177 条    名字表：5 项    错误：0 个
+
+======== 开始解释执行（start pl0）========
+before: 49 38 65 97 76 13 27 4
+after : 4 13 27 38 49 65 76 97
+
+======== 解释执行结束 ========

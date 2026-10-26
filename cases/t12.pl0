@@ -1,0 +1,22 @@
+/* 辗转相除求最大公约数：过程 + while + 取余 */
+var x, y, g;
+procedure gcd;
+var u, v, r;
+begin
+  u := x; v := y;
+  while v <> 0 do
+  begin
+    r := u % v;
+    u := v;
+    v := r
+  end;
+  g := u
+end;
+begin
+  x := 1071; y := 462;
+  call gcd;
+  write('gcd(1071,462)=', g);
+  x := 17; y := 5;
+  call gcd;
+  write('gcd(17,5)=', g)
+end.

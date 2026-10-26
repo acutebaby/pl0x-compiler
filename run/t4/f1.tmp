@@ -1,0 +1,14 @@
+------ 源程序 cases/t4.pl0 ------
+  1| // 读入、数组读入与求最大值
+  2| var a[10], i, n, max;
+  3| begin
+  4|   read(n);
+  5|   for i := 0 to n - 1 do read(a[i]);
+  6|   max := a[0];
+  7|   for i := 1 to n - 1 do
+  8|     if a[i] > max then max := a[i];
+  9|   write('max=', max)
+ 10| end.
+
+------ 编译统计 ------
+源程序行数：11  目标代码：67 条  名字表：4 项  错误：0 个

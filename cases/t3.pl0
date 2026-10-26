@@ -1,0 +1,19 @@
+/* 过程嵌套与静态链：内层过程访问外层变量 */
+var g, total;
+procedure addone;
+var t;
+begin
+  t := g + 1;
+  g := t;
+  total += t
+end;
+procedure twice;
+begin
+  call addone;
+  call addone
+end;
+begin
+  g := 5; total := 0;
+  call twice;
+  write('g=', g, ' total=', total)
+end.

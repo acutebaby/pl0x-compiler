@@ -1,0 +1,117 @@
+------ 源程序 cases/t3.pl0 ------
+  1| /* 过程嵌套与静态链：内层过程访问外层变量 */
+  2| var g, total;
+  3| procedure addone;
+  4| var t;
+  5| begin
+  6|   t := g + 1;
+  7|   g := t;
+  8|   total += t
+  9| end;
+ 10| procedure twice;
+ 11| begin
+ 12|   call addone;
+ 13|   call addone
+ 14| end;
+ 15| begin
+ 16|   g := 5; total := 0;
+ 17|   call twice;
+ 18|   write('g=', g, ' total=', total)
+ 19| end.
+
+------ 名字表（当前层次 lev=1，表长 4）------
+ 序号 名字            类别     值/层次  地址  大小
+    1 g              变量        0     3     1
+    2 total          变量        0     4     1
+    3 addone         过程        0     2     4
+    4 t              变量        1     3     1
+
+------ 目标代码（P-代码）15 条 ------
+ 地址  指令   层次  操作数
+    1  jmp       0      2
+    2  int       0     12
+    3  lod       0      3
+    4  lod       1      3
+    5  lit       0      1
+    6  opr       0      2
+    7  sto       0      3
+    8  lod       1      3
+    9  lod       0      3
+   10  sto       1      3
+   11  lod       1      4
+   12  lod       0      3
+   13  opr       0      2
+   14  sto       1      4
+   15  opr       0      0
+
+------ 名字表（当前层次 lev=1，表长 5）------
+ 序号 名字            类别     值/层次  地址  大小
+    1 g              变量        0     3     1
+    2 total          变量        0     4     1
+    3 addone         过程        0     2     4
+    4 t              变量        1     3     1
+    5 twice          过程        0    17     3
+
+------ 目标代码（P-代码）5 条 ------
+ 地址  指令   层次  操作数
+   16  jmp       0     17
+   17  int       0     11
+   18  cal       1      2
+   19  cal       1      2
+   20  opr       0      0
+
+------ 名字表（当前层次 lev=0，表长 5）------
+ 序号 名字            类别     值/层次  地址  大小
+    1 g              变量        0     3     1
+    2 total          变量        0     4     1
+    3 addone         过程        0     2     4
+    4 t              变量        1     3     1
+    5 twice          过程        0    17     3
+
+------ 目标代码（P-代码）37 条 ------
+ 地址  指令   层次  操作数
+    0  jmp       0     21
+    1  jmp       0      2
+    2  int       0     12
+    3  lod       0      3
+    4  lod       1      3
+    5  lit       0      1
+    6  opr       0      2
+    7  sto       0      3
+    8  lod       1      3
+    9  lod       0      3
+   10  sto       1      3
+   11  lod       1      4
+   12  lod       0      3
+   13  opr       0      2
+   14  sto       1      4
+   15  opr       0      0
+   16  jmp       0     17
+   17  int       0     11
+   18  cal       1      2
+   19  cal       1      2
+   20  opr       0      0
+   21  int       0     13
+   22  lod       0      3
+   23  lit       0      5
+   24  sto       0      3
+   25  lod       0      4
+   26  lit       0      0
+   27  sto       0      4
+   28  cal       0     17
+   29  wrs       0      0
+   30  lod       0      3
+   31  opr       0     14
+   32  wrs       0      1
+   33  lod       0      4
+   34  opr       0     14
+   35  opr       0     15
+   36  opr       0      0
+
+------ 编译统计 ------
+源程序行数：20    目标代码：37 条    名字表：5 项    错误：0 个
+
+======== 开始解释执行（start pl0）========
+g=7 total=13
+
+======== 解释执行结束 ========

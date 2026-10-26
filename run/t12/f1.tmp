@@ -1,0 +1,26 @@
+------ 源程序 cases/t12.pl0 ------
+  1| /* 辗转相除求最大公约数：过程 + while + 取余 */
+  2| var x, y, g;
+  3| procedure gcd;
+  4| var u, v, r;
+  5| begin
+  6|   u := x; v := y;
+  7|   while v <> 0 do
+  8|   begin
+  9|     r := u % v;
+ 10|     u := v;
+ 11|     v := r
+ 12|   end;
+ 13|   g := u
+ 14| end;
+ 15| begin
+ 16|   x := 1071; y := 462;
+ 17|   call gcd;
+ 18|   write('gcd(1071,462)=', g);
+ 19|   x := 17; y := 5;
+ 20|   call gcd;
+ 21|   write('gcd(17,5)=', g)
+ 22| end.
+
+------ 编译统计 ------
+源程序行数：23  目标代码：53 条  名字表：7 项  错误：0 个

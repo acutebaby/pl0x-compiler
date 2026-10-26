@@ -1,0 +1,44 @@
+========================================================
+ 《编译原理》三级项目  第 5 组
+ PL/0 编译程序的研究与改进 —— 第三阶段交付包
+========================================================
+
+一、目录结构
+  src/          扩展版编译程序源码（pl0x.c / pl0x.h / Makefile / build.bat）
+  baseline/     教材附录 A 的原始程序（pl0.c / p10.h / pl0.pas）
+  cases/        12 个测试用例（t1.pl0 ~ t12.pl0）
+  run/          每个用例的完整输出与中间文件
+                  stdout.txt  控制台完整输出
+                  fa.tmp      目标代码（P-代码）清单
+                  fas.tmp     名字表清单
+                  fa2.tmp     运行结果
+                  f1.tmp      源程序清单与错误信息
+  screenshots/  编译与运行截图、报告插图（PNG）
+
+二、编译
+  Linux / macOS :  cd src && make
+  Windows/MinGW :  cd src && gcc -o pl0x.exe pl0x.c
+  Visual Studio :  cl /nologo /TC pl0x.c /Fe:pl0x.exe
+
+三、运行
+  ./pl0x ../cases/t10.pl0
+  注意：t4.pl0 需要从标准输入读数据，先输入元素个数 5，再输入 5 个整数，
+        例如：5 回车 3 17 9 42 8 回车
+
+四、验证
+  运行后比对当前目录生成的 fa.tmp / fas.tmp / fa2.tmp 与 run/<用例>/ 下
+  同名文件，若一致则说明复现成功。
+
+五、扩充功能（18 项）
+  注释（// 与 /* */）、标识符下划线、字符串常量、多字符运算符、
+  一维数组（说明 / 引用 / 赋值 / 越界检查）、if-then-else、
+  for-to / downto、repeat-until、复合赋值（+= -= *= /= %=）、
+  自增自减（++ --）、取余（% 与 mod）、div、逻辑运算（and or not && || !）、
+  开方 sqrt、print（不换行输出）、中文错误提示与行列定位、运行期检查。
+
+六、说明
+  1. 教材附录 A 的 C 版程序在现代编译器上不能直接编译（枚举成员名为 int），
+     本包 baseline 目录中已将其改名为 Int，其余保持原样。
+  2. block() 中声明结束处的同步集，教材转录为 declbegsys，应为 statbegsys，
+     baseline 中已修正并在源码中标注。
+  3. 扩展版在 Linux + gcc 11.4 与 Windows + MinGW-w64 gcc 12.2 下均验证通过。

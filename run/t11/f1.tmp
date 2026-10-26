@@ -1,0 +1,17 @@
+------ 源程序 cases/t11.pl0 ------
+  1| /* 九九乘法表：嵌套 for + write 字符串 */
+  2| var i, j;
+  3| begin
+  4|   for i := 1 to 9 do
+  5|   begin
+  6|     for j := 1 to i do
+  7|     begin
+  8|       print(j, '*', i, '=', i * j);
+  9|       if i * j < 10 then print('  ') else print(' ')
+ 10|     end;
+ 11|     write('')
+ 12|   end
+ 13| end.
+
+------ 编译统计 ------
+源程序行数：14  目标代码：50 条  名字表：2 项  错误：0 个

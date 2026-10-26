@@ -1,0 +1,23 @@
+------ 源程序 cases/t3.pl0 ------
+  1| /* 过程嵌套与静态链：内层过程访问外层变量 */
+  2| var g, total;
+  3| procedure addone;
+  4| var t;
+  5| begin
+  6|   t := g + 1;
+  7|   g := t;
+  8|   total += t
+  9| end;
+ 10| procedure twice;
+ 11| begin
+ 12|   call addone;
+ 13|   call addone
+ 14| end;
+ 15| begin
+ 16|   g := 5; total := 0;
+ 17|   call twice;
+ 18|   write('g=', g, ' total=', total)
+ 19| end.
+
+------ 编译统计 ------
+源程序行数：20  目标代码：37 条  名字表：5 项  错误：0 个

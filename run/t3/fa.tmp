@@ -1,0 +1,63 @@
+
+------ 目标代码（P-代码）15 条 ------
+    1  jmp       0      2
+    2  int       0     12
+    3  lod       0      3
+    4  lod       1      3
+    5  lit       0      1
+    6  opr       0      2
+    7  sto       0      3
+    8  lod       1      3
+    9  lod       0      3
+   10  sto       1      3
+   11  lod       1      4
+   12  lod       0      3
+   13  opr       0      2
+   14  sto       1      4
+   15  opr       0      0
+
+------ 目标代码（P-代码）5 条 ------
+   16  jmp       0     17
+   17  int       0     11
+   18  cal       1      2
+   19  cal       1      2
+   20  opr       0      0
+
+------ 目标代码（P-代码）37 条 ------
+    0  jmp       0     21
+    1  jmp       0      2
+    2  int       0     12
+    3  lod       0      3
+    4  lod       1      3
+    5  lit       0      1
+    6  opr       0      2
+    7  sto       0      3
+    8  lod       1      3
+    9  lod       0      3
+   10  sto       1      3
+   11  lod       1      4
+   12  lod       0      3
+   13  opr       0      2
+   14  sto       1      4
+   15  opr       0      0
+   16  jmp       0     17
+   17  int       0     11
+   18  cal       1      2
+   19  cal       1      2
+   20  opr       0      0
+   21  int       0     13
+   22  lod       0      3
+   23  lit       0      5
+   24  sto       0      3
+   25  lod       0      4
+   26  lit       0      0
+   27  sto       0      4
+   28  cal       0     17
+   29  wrs       0      0
+   30  lod       0      3
+   31  opr       0     14
+   32  wrs       0      1
+   33  lod       0      4
+   34  opr       0     14
+   35  opr       0     15
+   36  opr       0      0

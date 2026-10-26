@@ -1,0 +1,25 @@
+
+------ 目标代码（P-代码）23 条 ------
+    0  jmp       0      1
+    1  int       0     13
+    2  lod       0      3
+    3  lit       0      1
+    4  sto       0      3
+    5  lod       0      4
+    6  lit       0      2
+    7  sto       0      4
+    8  lod       0      3
+    9  lod       0      4
+   10  opr       0     12
+   11  jpc       0     15
+   12  lod       0      3
+   13  opr       0     14
+   14  opr       0     15
+   15  lod       0      4
+   16  opr       0     14
+   17  opr       0     15
+   18  lod       0      3
+   19  opr       0      2
+   20  opr       0     14
+   21  opr       0     15
+   22  opr       0      0

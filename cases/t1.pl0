@@ -1,0 +1,9 @@
+// 表达式与基本赋值
+const a = 10;
+var b, c;
+begin
+  b := a + 3 * 4;
+  c := b / a;
+  write('b=', b, '  c=', c);
+  write('b-c=', b - c)
+end.

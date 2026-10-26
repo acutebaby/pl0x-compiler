@@ -1,0 +1,12 @@
+------ 源程序 cases/t9.pl0 ------
+  1| // downto 与嵌套 for
+  2| var i, j, s;
+  3| begin
+  4|   s := 0;
+  5|   for i := 3 downto 1 do
+  6|     for j := 1 to i do s += i * j;
+  7|   write('s=', s)
+  8| end.
+
+------ 编译统计 ------
+源程序行数：9  目标代码：42 条  名字表：3 项  错误：0 个

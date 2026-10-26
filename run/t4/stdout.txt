@@ -1,0 +1,96 @@
+------ 源程序 cases/t4.pl0 ------
+  1| // 读入、数组读入与求最大值
+  2| var a[10], i, n, max;
+  3| begin
+  4|   read(n);
+  5|   for i := 0 to n - 1 do read(a[i]);
+  6|   max := a[0];
+  7|   for i := 1 to n - 1 do
+  8|     if a[i] > max then max := a[i];
+  9|   write('max=', max)
+ 10| end.
+
+------ 名字表（当前层次 lev=0，表长 4）------
+ 序号 名字            类别     值/层次  地址  大小
+    1 a              数组        0     3    10
+    2 i              变量        0    13     1
+    3 n              变量        0    14     1
+    4 max            变量        0    15     1
+
+------ 目标代码（P-代码）67 条 ------
+ 地址  指令   层次  操作数
+    0  jmp       0      1
+    1  int       0     24
+    2  opr       0     16
+    3  sto       0     14
+    4  lit       0      0
+    5  sto       0     13
+    6  lod       0     14
+    7  lit       0      1
+    8  opr       0      3
+    9  sto       0     16
+   10  lod       0     13
+   11  lod       0     16
+   12  opr       0     13
+   13  jpc       0     25
+   14  lod       0     13
+   15  chk       0     10
+   16  lda       0      3
+   17  opr       0      2
+   18  opr       0     16
+   19  sti       0      0
+   20  lod       0     13
+   21  lit       0      1
+   22  opr       0      2
+   23  sto       0     13
+   24  jmp       0     10
+   25  lod       0     15
+   26  lit       0      0
+   27  chk       0     10
+   28  lda       0      3
+   29  opr       0      2
+   30  ldi       0      0
+   31  sto       0     15
+   32  lit       0      1
+   33  sto       0     13
+   34  lod       0     14
+   35  lit       0      1
+   36  opr       0      3
+   37  sto       0     16
+   38  lod       0     13
+   39  lod       0     16
+   40  opr       0     13
+   41  jpc       0     62
+   42  lod       0     13
+   43  chk       0     10
+   44  lda       0      3
+   45  opr       0      2
+   46  ldi       0      0
+   47  lod       0     15
+   48  opr       0     12
+   49  jpc       0     57
+   50  lod       0     15
+   51  lod       0     13
+   52  chk       0     10
+   53  lda       0      3
+   54  opr       0      2
+   55  ldi       0      0
+   56  sto       0     15
+   57  lod       0     13
+   58  lit       0      1
+   59  opr       0      2
+   60  sto       0     13
+   61  jmp       0     38
+   62  wrs       0      0
+   63  lod       0     15
+   64  opr       0     14
+   65  opr       0     15
+   66  opr       0      0
+
+------ 编译统计 ------
+源程序行数：11    目标代码：67 条    名字表：4 项    错误：0 个
+
+======== 开始解释执行（start pl0）========
+? ? ? ? ? ? max=42
+
+======== 解释执行结束 ========
